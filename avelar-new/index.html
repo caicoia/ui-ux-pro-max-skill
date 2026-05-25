@@ -372,9 +372,8 @@ button, input, textarea, select { font-family: inherit; }
   width: 100%; aspect-ratio: 4/5;
   border-radius: 20px; overflow: hidden;
   box-shadow: var(--shadow);
-  position: relative;
 }
-.about-img-box svg { width: 55%; opacity: .15; }
+.about-img-box img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
 .badge-exp {
   position: absolute; bottom: -18px; left: -18px;
   background: var(--ice); border-radius: 14px;
@@ -666,14 +665,13 @@ button, input, textarea, select { font-family: inherit; }
   box-shadow: 0 0 24px rgba(41,184,232,.2);
 }
 .testi-logo {
-  font-family: var(--font-head); font-weight: 800; font-size: 1.05rem;
-  color: var(--white); letter-spacing: .06em;
-  padding: 8px 16px; border-radius: 7px;
-  background: rgba(255,255,255,.07);
-  border: 1px solid rgba(255,255,255,.1);
+  padding: 10px 16px; border-radius: 7px;
+  background: rgba(255,255,255,.92);
+  border: 1px solid rgba(255,255,255,.15);
   margin-bottom: 20px;
+  display: flex; align-items: center; justify-content: center;
 }
-.testi-logo span { color: var(--ice); }
+.testi-logo img { height: 38px; width: auto; display: block; }
 .testi-stars { display: flex; gap: 3px; justify-content: center; margin-bottom: 16px; }
 .testi-stars i { color: var(--ice); font-size: .85rem; }
 .testi-author-name { font-family: var(--font-head); font-weight: 700; color: var(--white); font-size: .92rem; margin-bottom: 4px; }
@@ -736,6 +734,11 @@ button, input, textarea, select { font-family: inherit; }
 .art-img-2 { background: linear-gradient(135deg, #050E1C, #0E2244); }
 .art-img-3 { background: linear-gradient(135deg, #0A1628, #153060); }
 .art-img > i { font-size: 3.5rem; color: rgba(41,184,232,.15); }
+.art-img > img.art-photo {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  display: block; opacity: .75;
+}
 .art-badge {
   position: absolute; top: 12px; left: 12px;
   font-family: var(--font-mono); font-size: .62rem; font-weight: 700;
@@ -967,17 +970,16 @@ button, input, textarea, select { font-family: inherit; }
       </a>
       <a href="tel:+551133334444" class="tb-extra">
         <i class="fa-solid fa-phone" aria-hidden="true"></i>
-        (11) 3333-4444
+        (98) 99822 1755
       </a>
       <span class="tb-extra" style="display:flex;align-items:center;gap:6px;">
         <i class="fa-solid fa-location-dot" style="color:var(--ice);" aria-hidden="true"></i>
-        São Paulo, SP
+        São Luís, MA
       </span>
     </div>
     <div class="topbar-right topbar-social">
-      <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
-      <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
-      <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+      <a href="https://www.facebook.com/avelarrefrigeracaosaoluis" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+      <a href="https://www.instagram.com/avelar.com.br/" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
     </div>
   </div>
 </div>
@@ -992,27 +994,7 @@ button, input, textarea, select { font-family: inherit; }
       <!-- Logo: replace src with actual logo file path -->
       <a href="/" class="logo" aria-label="Avelar – Tecnologia em Climatização">
         <!-- Replace the SVG below with: <img src="logo.svg" alt="Avelar" height="42"> -->
-        <svg height="42" viewBox="0 0 220 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <!-- A -->
-          <path d="M4 44L16 8H21L33 44H27.5L24 33H13L9.5 44H4Z M14.5 28.5H22.5L18.5 15.5L14.5 28.5Z" fill="#29B8E8"/>
-          <!-- R body -->
-          <path d="M36 8H50C55.5 8 59 11.5 59 17.5C59 22.5 56.5 25.8 52 27.2L59.5 44H53.5L46.5 28H41V44H36V8Z M41 23.5H49.5C52 23.5 54 21.5 54 17.5C54 13.5 52 12 49.5 12H41V23.5Z" fill="#29B8E8"/>
-          <!-- Snowflake inside R -->
-          <g transform="translate(48.5,17.5)" stroke="#ffffff" stroke-linecap="round">
-            <line x1="0" y1="-5" x2="0" y2="5" stroke-width="1.4"/>
-            <line x1="-4.3" y1="-2.5" x2="4.3" y2="2.5" stroke-width="1.4"/>
-            <line x1="-4.3" y1="2.5" x2="4.3" y2="-2.5" stroke-width="1.4"/>
-            <line x1="0" y1="-5" x2="-1.5" y2="-3" stroke-width="1"/>
-            <line x1="0" y1="-5" x2="1.5" y2="-3" stroke-width="1"/>
-            <line x1="0" y1="5" x2="-1.5" y2="3" stroke-width="1"/>
-            <line x1="0" y1="5" x2="1.5" y2="3" stroke-width="1"/>
-          </g>
-          <!-- 3 waves below AR -->
-          <path d="M36 48.5 Q41 46 46 48.5 Q51 51 56 48.5" stroke="#29B8E8" stroke-width="1.6" fill="none" stroke-linecap="round"/>
-          <path d="M36 52 Q41 49.5 46 52 Q51 54.5 56 52" stroke="#29B8E8" stroke-width="1.2" fill="none" stroke-linecap="round" opacity=".5"/>
-          <!-- Text: Tecnologia em Climatização -->
-          <text x="72" y="32" font-family="'Exo', sans-serif" font-size="13" font-weight="400" fill="#29B8E8" letter-spacing="0.5">Tecnologia em Climatização</text>
-        </svg>
+        <img src="https://avelarrefrigeracao.com.br/wp-content/uploads/2025/06/Nova-logomarca-Avelar-branca.png" alt="Avelar – Tecnologia em Climatização" height="42" />
       </a>
 
       <ul class="nav-links" role="list">
@@ -1193,7 +1175,7 @@ button, input, textarea, select { font-family: inherit; }
   <div class="container">
     <div class="about-text">
       <span class="tag"><i class="fa-solid fa-snowflake"></i> Compromisso</span>
-      <h2 id="about-heading">Nossa experiência a favor<br />da sua <em>produtividade</em></h2>
+      <h2 id="about-heading">Nossa experiência<br />a favor da sua <em>produtividade</em></h2>
       <p>
         Há mais de 15 anos atendemos indústrias, redes de varejo e unidades hospitalares com soluções de climatização de alta performance. Nossa engenharia integra projeto, instalação e manutenção contínua — com responsabilidade técnica em cada etapa.
       </p>
@@ -1226,13 +1208,8 @@ button, input, textarea, select { font-family: inherit; }
     </div>
 
     <div class="about-visual">
-      <div class="about-img-box" style="background:none;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);">
-        <img
-          src="https://avelarrefrigeracao.com.br/wp-content/uploads/2025/06/Sobre-img-Avelar.jpg"
-          alt="CEO da Avelar – Tecnologia em Climatização"
-          style="width:100%;height:100%;object-fit:cover;display:block;"
-          loading="lazy"
-        />
+      <div class="about-img-box">
+        <img src="https://avelarrefrigeracao.com.br/wp-content/uploads/2025/06/Sobre-img-Avelar.jpg" alt="CEO da Avelar Refrigeração" />
       </div>
       <div class="badge-exp" aria-label="15 anos de experiência">
         <strong>15<sup style="font-size:.9rem">+</sup></strong>
@@ -1527,7 +1504,9 @@ button, input, textarea, select { font-family: inherit; }
         <div class="testi-avatar" role="img" aria-label="Foto do cliente Ricardo Mendes">
           <i class="fa-solid fa-user" aria-hidden="true"></i>
         </div>
-        <div class="testi-logo">GMS <span>BRAZIL</span></div>
+        <div class="testi-logo">
+          <img src="https://avelarrefrigeracao.com.br/wp-content/uploads/2018/03/LOGO-GMS-BRAZIL.jpg" alt="GMS Brazil" />
+        </div>
         <div class="testi-stars" role="img" aria-label="5 estrelas">
           <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
           <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
@@ -1585,6 +1564,7 @@ button, input, textarea, select { font-family: inherit; }
 
       <article class="art-card" role="listitem">
         <div class="art-img art-img-1" role="img" aria-label="Eficiência energética em refrigeração">
+          <img class="art-photo" src="https://avelarrefrigeracao.com.br/wp-content/uploads/2022/01/Eficiencia-Energetica-em-Refrigeracao-Comercial.jpg" alt="" aria-hidden="true" />
           <i class="fa-solid fa-bolt" aria-hidden="true"></i>
           <div class="art-badge">Energia</div>
           <div class="eff-mini" aria-hidden="true">
@@ -1608,6 +1588,7 @@ button, input, textarea, select { font-family: inherit; }
 
       <article class="art-card" role="listitem">
         <div class="art-img art-img-2" role="img" aria-label="PMOC: Compliance e conformidade">
+          <img class="art-photo" src="https://avelarrefrigeracao.com.br/wp-content/uploads/2022/01/PMOC-Tudo-o-que-Voce-Precisa-Saber.jpg" alt="" aria-hidden="true" />
           <i class="fa-solid fa-file-shield" aria-hidden="true"></i>
           <div class="art-badge">Compliance</div>
           <div class="pmoc-box" aria-hidden="true">
@@ -1628,6 +1609,7 @@ button, input, textarea, select { font-family: inherit; }
 
       <article class="art-card" role="listitem">
         <div class="art-img art-img-3" role="img" aria-label="Planejamento de projetos de refrigeração">
+          <img class="art-photo" src="https://avelarrefrigeracao.com.br/wp-content/uploads/2022/01/Planejando-Projetos-de-Refrigeracao-Industrial.jpg" alt="" aria-hidden="true" />
           <i class="fa-solid fa-diagram-project" aria-hidden="true"></i>
           <div class="art-badge">Projetos</div>
         </div>
@@ -1660,8 +1642,8 @@ button, input, textarea, select { font-family: inherit; }
         <a href="#contato" class="btn btn-ice">
           <i class="fa-solid fa-file-lines" aria-hidden="true"></i> Solicitar Diagnóstico
         </a>
-        <a href="tel:+551133334444" class="btn btn-ghost">
-          <i class="fa-solid fa-phone" aria-hidden="true"></i> (11) 3333-4444
+        <a href="tel:+5598998221755" class="btn btn-ghost">
+          <i class="fa-solid fa-phone" aria-hidden="true"></i> (98) 99822 1755
         </a>
       </div>
     </div>
@@ -1691,7 +1673,7 @@ button, input, textarea, select { font-family: inherit; }
           <div class="c-item-ic"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></div>
           <div>
             <strong>WhatsApp</strong>
-            <a href="https://wa.me/5511999994444"><span>(11) 99999-4444</span></a>
+            <a href="https://api.whatsapp.com/send?phone=5598998221755"><span>(98)99822-1755</span></a>
           </div>
         </div>
         <div class="c-item">
@@ -1705,7 +1687,7 @@ button, input, textarea, select { font-family: inherit; }
           <div class="c-item-ic"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></div>
           <div>
             <strong>Localização</strong>
-            <span>Rua Exemplo, 1000 — São Paulo, SP</span>
+            <span>Avenida Vaticano, Quadra D1, nº 1 – Anjo da Guarda – São Luís – MA</span>
           </div>
         </div>
       </div>
@@ -1767,17 +1749,7 @@ button, input, textarea, select { font-family: inherit; }
 
       <div class="footer-brand">
         <!-- Logo footer -->
-        <svg height="38" viewBox="0 0 220 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Avelar – Tecnologia em Climatização" role="img">
-          <path d="M4 44L16 8H21L33 44H27.5L24 33H13L9.5 44H4Z M14.5 28.5H22.5L18.5 15.5L14.5 28.5Z" fill="#29B8E8"/>
-          <path d="M36 8H50C55.5 8 59 11.5 59 17.5C59 22.5 56.5 25.8 52 27.2L59.5 44H53.5L46.5 28H41V44H36V8Z M41 23.5H49.5C52 23.5 54 21.5 54 17.5C54 13.5 52 12 49.5 12H41V23.5Z" fill="#29B8E8"/>
-          <g transform="translate(48.5,17.5)" stroke="#0a1628" stroke-linecap="round">
-            <line x1="0" y1="-5" x2="0" y2="5" stroke-width="1.4"/>
-            <line x1="-4.3" y1="-2.5" x2="4.3" y2="2.5" stroke-width="1.4"/>
-            <line x1="-4.3" y1="2.5" x2="4.3" y2="-2.5" stroke-width="1.4"/>
-          </g>
-          <path d="M36 48.5 Q41 46 46 48.5 Q51 51 56 48.5" stroke="#29B8E8" stroke-width="1.6" fill="none" stroke-linecap="round"/>
-          <text x="72" y="32" font-family="'Exo', sans-serif" font-size="12" font-weight="400" fill="rgba(41,184,232,0.6)" letter-spacing="0.5">Tecnologia em Climatização</text>
-        </svg>
+        <img src="https://avelarrefrigeracao.com.br/wp-content/uploads/2025/06/Nova-logomarca-Avelar-branca.png" alt="Avelar – Tecnologia em Climatização" height="38" />
         <p>Soluções completas em refrigeração industrial e comercial. Excelência técnica, comprometimento e inovação desde 2009.</p>
         <div class="f-social">
           <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
@@ -1814,15 +1786,11 @@ button, input, textarea, select { font-family: inherit; }
         <div class="f-contacts">
           <div class="f-contact-item">
             <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-            <span>Rua Exemplo, 1000<br />São Paulo – SP</span>
-          </div>
-          <div class="f-contact-item">
-            <i class="fa-solid fa-phone" aria-hidden="true"></i>
-            <a href="tel:+551133334444">(11) 3333-4444</a>
+            <span>Avenida Vaticano, Quadra D1, nº 1 – Anjo da Guarda<br />São Luís – MA</span>
           </div>
           <div class="f-contact-item">
             <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
-            <a href="https://wa.me/5511999994444">(11) 99999-4444</a>
+            <a href="https://api.whatsapp.com/send?phone=5598998221755">(98) 99822 1755</a>
           </div>
           <div class="f-contact-item">
             <i class="fa-solid fa-envelope" aria-hidden="true"></i>
@@ -1834,7 +1802,7 @@ button, input, textarea, select { font-family: inherit; }
     </div>
 
     <div class="footer-bottom">
-      <p>© 2025 Avelar Tecnologia em Climatização. Todos os direitos reservados.</p>
+      <p>© 2026 Avelar Tecnologia em Climatização. CNPJ 24.740.872/0001-54 | Todos os direitos reservados.</p>
       <p>
         <a href="#">Política de Privacidade</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Termos de Uso</a>
       </p>
