@@ -370,10 +370,9 @@ button, input, textarea, select { font-family: inherit; }
 .about-visual { position: relative; }
 .about-img-box {
   width: 100%; aspect-ratio: 4/5;
-  background: linear-gradient(135deg, var(--dark-4), var(--dark-2));
   border-radius: 20px; overflow: hidden;
-  display: flex; align-items: center; justify-content: center;
   box-shadow: var(--shadow);
+  position: relative;
 }
 .about-img-box svg { width: 55%; opacity: .15; }
 .badge-exp {
@@ -1227,12 +1226,13 @@ button, input, textarea, select { font-family: inherit; }
     </div>
 
     <div class="about-visual">
-      <div class="about-img-box" role="img" aria-label="Engenheiro Avelar em campo">
-        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <circle cx="100" cy="68" r="36" fill="white"/>
-          <path d="M38 170 Q60 118 100 113 Q140 118 162 170" fill="white"/>
-          <rect x="58" y="138" width="84" height="52" rx="6" fill="rgba(41,184,232,0.35)"/>
-        </svg>
+      <div class="about-img-box" style="background:none;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);">
+        <img
+          src="https://avelarrefrigeracao.com.br/wp-content/uploads/2025/06/Sobre-img-Avelar.jpg"
+          alt="CEO da Avelar – Tecnologia em Climatização"
+          style="width:100%;height:100%;object-fit:cover;display:block;"
+          loading="lazy"
+        />
       </div>
       <div class="badge-exp" aria-label="15 anos de experiência">
         <strong>15<sup style="font-size:.9rem">+</sup></strong>
