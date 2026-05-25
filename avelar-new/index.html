@@ -584,60 +584,227 @@
     .testimonial-stars { color: var(--orange); font-size: .95rem; margin-bottom: 16px; display: flex; gap: 3px; }
 
     /* =====================================================
-       TEAM
+       TECHNOLOGY
     ===================================================== */
-    .team { padding: 100px 0; background: var(--white); }
-    .team-header { text-align: center; margin-bottom: 56px; }
-    .team-header h2 {
+    .technology { padding: 100px 0; background: var(--navy); overflow: hidden; position: relative; }
+    .technology::before {
+      content: '';
+      position: absolute;
+      left: -150px; bottom: -150px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(37,99,235,.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .technology .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+      position: relative;
+    }
+    .tech-text h2 {
+      font-family: var(--font-head);
+      font-size: clamp(1.9rem, 3.5vw, 2.7rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .tech-text h2 span { color: var(--blue-light); }
+    .tech-text > p { color: rgba(255,255,255,.65); line-height: 1.75; margin-bottom: 36px; }
+    .tech-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .tech-card {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 12px;
+      padding: 22px 20px;
+      transition: background var(--transition), border-color var(--transition), transform var(--transition);
+    }
+    .tech-card:hover {
+      background: rgba(37,99,235,.12);
+      border-color: rgba(37,99,235,.4);
+      transform: translateY(-2px);
+    }
+    .tech-card-icon {
+      width: 42px; height: 42px;
+      background: rgba(37,99,235,.2);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 14px;
+    }
+    .tech-card-icon i { color: var(--blue-light); font-size: 1.1rem; }
+    .tech-card h3 {
+      font-family: var(--font-head);
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .tech-card p { color: rgba(255,255,255,.5); font-size: .8rem; line-height: 1.55; }
+
+    /* Dashboard mock */
+    .tech-dashboard {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .dash-header {
+      background: rgba(255,255,255,.06);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .dash-title {
+      display: flex; align-items: center; gap: 8px;
+      font-family: var(--font-head);
+      font-size: .82rem;
+      font-weight: 600;
+      color: rgba(255,255,255,.8);
+    }
+    .dash-title i { color: var(--blue-light); }
+    .dash-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      animation: pulse-dot 2s infinite;
+    }
+    @keyframes pulse-dot {
+      0%,100% { box-shadow: 0 0 0 0 rgba(34,197,94,.4); }
+      50%      { box-shadow: 0 0 0 6px rgba(34,197,94,0); }
+    }
+    .dash-live { font-size: .72rem; color: #22c55e; font-weight: 600; display: flex; align-items: center; gap: 5px; }
+    .dash-body { padding: 20px; display: flex; flex-direction: column; gap: 14px; }
+    .dash-kpi-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .dash-kpi {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 10px;
+      padding: 14px 12px;
+      text-align: center;
+    }
+    .dash-kpi-val {
+      font-family: var(--font-head);
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .dash-kpi-val.green { color: #22c55e; }
+    .dash-kpi-val.orange { color: var(--orange); }
+    .dash-kpi-label { font-size: .68rem; color: rgba(255,255,255,.4); text-transform: uppercase; letter-spacing: .05em; }
+    .dash-sensor-list { display: flex; flex-direction: column; gap: 8px; }
+    .dash-sensor {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 8px;
+      font-size: .8rem;
+    }
+    .dash-sensor-name { color: rgba(255,255,255,.6); flex: 1; }
+    .dash-sensor-val { font-family: var(--font-head); font-weight: 700; color: var(--white); font-size: .85rem; }
+    .dash-sensor-status {
+      font-size: .68rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 100px;
+    }
+    .dash-sensor-status.ok { background: rgba(34,197,94,.15); color: #22c55e; }
+    .dash-sensor-status.warn { background: rgba(249,115,22,.15); color: var(--orange); }
+    .dash-bar-section { display: flex; flex-direction: column; gap: 8px; }
+    .dash-bar-row { display: flex; align-items: center; gap: 10px; font-size: .75rem; }
+    .dash-bar-label { color: rgba(255,255,255,.5); width: 80px; flex-shrink: 0; }
+    .dash-bar-track {
+      flex: 1;
+      height: 6px;
+      background: rgba(255,255,255,.08);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .dash-bar-fill {
+      height: 100%;
+      border-radius: 3px;
+      background: var(--blue);
+      transition: width 1.2s ease;
+    }
+    .dash-bar-fill.green { background: #22c55e; }
+    .dash-bar-pct { color: rgba(255,255,255,.6); width: 34px; text-align: right; flex-shrink: 0; }
+
+    /* =====================================================
+       PROCESS
+    ===================================================== */
+    .process { padding: 96px 0; background: var(--gray-50); }
+    .process-header { text-align: center; margin-bottom: 60px; }
+    .process-header h2 {
       font-family: var(--font-head);
       font-size: clamp(1.9rem, 3.5vw, 2.8rem);
       font-weight: 700;
       color: var(--navy);
       margin-bottom: 10px;
     }
-    .team-header p { color: var(--gray-600); }
-    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-
-    .team-card {
-      background: var(--gray-50);
-      border: 1px solid var(--gray-200);
-      border-radius: 14px;
-      padding: 36px 24px 28px;
+    .process-header p { color: var(--gray-600); max-width: 520px; margin: 0 auto; }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: calc(12.5% + 20px);
+      right: calc(12.5% + 20px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--blue), var(--blue-light));
+      z-index: 0;
+    }
+    .process-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
-      transition: box-shadow var(--transition), transform var(--transition);
+      padding: 0 16px;
+      position: relative;
+      z-index: 1;
     }
-    .team-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
-    .team-avatar {
-      width: 90px; height: 90px;
+    .process-num {
+      width: 72px; height: 72px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--navy-mid), var(--blue));
-      margin: 0 auto 18px;
+      background: var(--white);
+      border: 3px solid var(--blue);
       display: flex; align-items: center; justify-content: center;
-      font-size: 2.2rem;
-      color: rgba(255,255,255,.5);
-      border: 3px solid var(--white);
-      box-shadow: 0 4px 16px rgba(37,99,235,.2);
+      margin-bottom: 24px;
+      position: relative;
+      box-shadow: 0 0 0 8px var(--gray-50);
     }
-    .team-card h3 {
+    .process-num i { font-size: 1.4rem; color: var(--blue); }
+    .process-num .step-badge {
+      position: absolute;
+      top: -6px; right: -6px;
+      width: 22px; height: 22px;
+      background: var(--orange);
+      border-radius: 50%;
       font-family: var(--font-head);
-      font-size: 1rem;
+      font-size: .65rem;
+      font-weight: 800;
+      color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .process-step h3 {
+      font-family: var(--font-head);
+      font-size: .95rem;
       font-weight: 700;
       color: var(--navy);
-      margin-bottom: 4px;
+      margin-bottom: 8px;
     }
-    .team-role { color: var(--blue); font-size: .82rem; font-weight: 600; margin-bottom: 14px; }
-    .team-bio { color: var(--gray-600); font-size: .85rem; line-height: 1.6; margin-bottom: 18px; }
-    .team-social { display: flex; justify-content: center; gap: 10px; }
-    .team-social a {
-      width: 34px; height: 34px;
-      border-radius: 8px;
-      background: var(--navy);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--white);
-      font-size: .85rem;
-      transition: background var(--transition);
-    }
-    .team-social a:hover { background: var(--blue); }
+    .process-step p { color: var(--gray-600); font-size: .83rem; line-height: 1.6; }
 
     /* =====================================================
        CONTACT FORM
@@ -915,7 +1082,10 @@
       .services-grid { grid-template-columns: 1fr; }
       .testimonial .container { grid-template-columns: 1fr; text-align: center; }
       .testimonial-client { order: -1; }
-      .team-grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+      .technology .container { grid-template-columns: 1fr; }
+      .tech-cards { grid-template-columns: 1fr 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .process-steps::before { display: none; }
       .contact .container { grid-template-columns: 1fr; }
       .contact-form { padding: 28px 20px; }
       .form-grid { grid-template-columns: 1fr; }
@@ -929,6 +1099,9 @@
       .hero-actions { flex-direction: column; }
       .hero-badges { flex-direction: column; gap: 12px; }
       .footer-bottom { flex-direction: column; text-align: center; }
+      .tech-cards { grid-template-columns: 1fr; }
+      .dash-kpi-row { grid-template-columns: repeat(3, 1fr); }
+      .process-steps { grid-template-columns: 1fr; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -985,7 +1158,7 @@
         <li><a href="#inicio" class="active">Início</a></li>
         <li><a href="#empresa">Empresa</a></li>
         <li><a href="#servicos">Serviços</a></li>
-        <li><a href="#equipe">Equipe</a></li>
+        <li><a href="#tecnologia">Tecnologia</a></li>
         <li><a href="#artigos">Blog</a></li>
       </ul>
 
@@ -1002,7 +1175,7 @@
       <li><a href="#inicio">Início</a></li>
       <li><a href="#empresa">Empresa</a></li>
       <li><a href="#servicos">Serviços</a></li>
-      <li><a href="#equipe">Equipe</a></li>
+      <li><a href="#tecnologia">Tecnologia</a></li>
       <li><a href="#artigos">Blog</a></li>
       <li><a href="#contato" class="btn btn-primary" style="margin-top:8px;display:flex;justify-content:center;">Fale Conosco</a></li>
     </ul>
@@ -1275,68 +1448,185 @@
 </section>
 
 <!-- ===================================================
-     TEAM
+     TECHNOLOGY
 =================================================== -->
-<section class="team" id="equipe" aria-labelledby="team-heading">
+<section class="technology" id="tecnologia" aria-labelledby="tech-heading">
   <div class="container">
-    <div class="team-header">
-      <span class="section-tag">Nossa Equipe</span>
-      <h2 id="team-heading">Colaboradores dedicados</h2>
-      <p>Profissionais altamente qualificados, com treinamento contínuo e certificações técnicas.</p>
+
+    <div class="tech-text">
+      <span class="section-tag light">
+        <i class="fa-solid fa-microchip" aria-hidden="true"></i>&nbsp; Inovação Industrial
+      </span>
+      <h2 id="tech-heading">Monitoramento inteligente<br />para sua <span>operação</span></h2>
+      <p>
+        Integramos IoT, análise preditiva e dashboards em tempo real para garantir máxima disponibilidade dos seus sistemas de climatização — com alertas automáticos, relatórios de conformidade e suporte proativo.
+      </p>
+
+      <div class="tech-cards" role="list">
+        <div class="tech-card" role="listitem">
+          <div class="tech-card-icon" aria-hidden="true">
+            <i class="fa-solid fa-wifi"></i>
+          </div>
+          <h3>Sensores IoT</h3>
+          <p>Monitoramento contínuo de temperatura, pressão e vibração com sensores conectados em tempo real.</p>
+        </div>
+
+        <div class="tech-card" role="listitem">
+          <div class="tech-card-icon" aria-hidden="true">
+            <i class="fa-solid fa-brain"></i>
+          </div>
+          <h3>Manutenção Preditiva</h3>
+          <p>Algoritmos de IA identificam falhas iminentes antes que causem paradas não programadas.</p>
+        </div>
+
+        <div class="tech-card" role="listitem">
+          <div class="tech-card-icon" aria-hidden="true">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <h3>Dashboard 24/7</h3>
+          <p>Acesso remoto via web e mobile ao painel de monitoramento de toda a sua infraestrutura.</p>
+        </div>
+
+        <div class="tech-card" role="listitem">
+          <div class="tech-card-icon" aria-hidden="true">
+            <i class="fa-solid fa-file-shield"></i>
+          </div>
+          <h3>PMOC Digital</h3>
+          <p>Relatórios automáticos de manutenção com assinatura digital e conformidade ANVISA.</p>
+        </div>
+      </div>
     </div>
 
-    <div class="team-grid" role="list">
+    <!-- Dashboard visual -->
+    <div class="tech-dashboard" role="img" aria-label="Painel de monitoramento de sistemas em tempo real">
+      <div class="dash-header">
+        <div class="dash-title">
+          <i class="fa-solid fa-tower-broadcast" aria-hidden="true"></i>
+          Central de Monitoramento
+        </div>
+        <div class="dash-live">
+          <div class="dash-dot" aria-hidden="true"></div>
+          AO VIVO
+        </div>
+      </div>
 
-      <article class="team-card" role="listitem">
-        <div class="team-avatar" role="img" aria-label="Foto de William Jackson">
-          <i class="fa-solid fa-user" aria-hidden="true"></i>
+      <div class="dash-body">
+        <!-- KPIs -->
+        <div class="dash-kpi-row" aria-label="Indicadores principais">
+          <div class="dash-kpi">
+            <div class="dash-kpi-val green">99,8%</div>
+            <div class="dash-kpi-label">Uptime</div>
+          </div>
+          <div class="dash-kpi">
+            <div class="dash-kpi-val">24</div>
+            <div class="dash-kpi-label">Sensores</div>
+          </div>
+          <div class="dash-kpi">
+            <div class="dash-kpi-val orange">0</div>
+            <div class="dash-kpi-label">Alertas</div>
+          </div>
         </div>
-        <h3>William Jackson</h3>
-        <div class="team-role">Engenheiro de Refrigeração</div>
-        <p class="team-bio">Especialista em sistemas industriais de refrigeração com mais de 12 anos de experiência em projetos de grande porte.</p>
-        <div class="team-social">
-          <a href="#" aria-label="X (Twitter) de William Jackson">
-            <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
-          </a>
-          <a href="#" aria-label="LinkedIn de William Jackson">
-            <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
-          </a>
-        </div>
-      </article>
 
-      <article class="team-card" role="listitem">
-        <div class="team-avatar" role="img" aria-label="Foto de William Jackson">
-          <i class="fa-solid fa-user" aria-hidden="true"></i>
+        <!-- Sensors -->
+        <div class="dash-sensor-list" aria-label="Status dos equipamentos">
+          <div class="dash-sensor">
+            <i class="fa-solid fa-temperature-half" style="color:var(--blue-light);font-size:.85rem;" aria-hidden="true"></i>
+            <span class="dash-sensor-name">Câmara Fria 01</span>
+            <span class="dash-sensor-val">−18 °C</span>
+            <span class="dash-sensor-status ok">Normal</span>
+          </div>
+          <div class="dash-sensor">
+            <i class="fa-solid fa-temperature-half" style="color:var(--blue-light);font-size:.85rem;" aria-hidden="true"></i>
+            <span class="dash-sensor-name">Câmara Fria 02</span>
+            <span class="dash-sensor-val">−22 °C</span>
+            <span class="dash-sensor-status ok">Normal</span>
+          </div>
+          <div class="dash-sensor">
+            <i class="fa-solid fa-wind" style="color:var(--orange);font-size:.85rem;" aria-hidden="true"></i>
+            <span class="dash-sensor-name">HVAC — Galpão A</span>
+            <span class="dash-sensor-val">18 °C</span>
+            <span class="dash-sensor-status warn">Revisão</span>
+          </div>
+          <div class="dash-sensor">
+            <i class="fa-solid fa-bolt" style="color:var(--blue-light);font-size:.85rem;" aria-hidden="true"></i>
+            <span class="dash-sensor-name">Compressor Central</span>
+            <span class="dash-sensor-val">12,4 kW</span>
+            <span class="dash-sensor-status ok">Normal</span>
+          </div>
         </div>
-        <h3>William Jackson</h3>
-        <div class="team-role">Técnico Sênior em HVAC</div>
-        <p class="team-bio">Certificado em instalação e manutenção de sistemas HVAC comerciais e industriais, com foco em eficiência energética.</p>
-        <div class="team-social">
-          <a href="#" aria-label="X (Twitter)">
-            <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
-          </a>
-          <a href="#" aria-label="LinkedIn">
-            <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
-          </a>
-        </div>
-      </article>
 
-      <article class="team-card" role="listitem">
-        <div class="team-avatar" role="img" aria-label="Foto de William Jackson">
-          <i class="fa-solid fa-user" aria-hidden="true"></i>
+        <!-- Efficiency bars -->
+        <div class="dash-bar-section" aria-label="Eficiência energética por sistema">
+          <div class="dash-bar-row">
+            <span class="dash-bar-label">Câmara 01</span>
+            <div class="dash-bar-track"><div class="dash-bar-fill green" style="width:92%"></div></div>
+            <span class="dash-bar-pct">92%</span>
+          </div>
+          <div class="dash-bar-row">
+            <span class="dash-bar-label">Câmara 02</span>
+            <div class="dash-bar-track"><div class="dash-bar-fill green" style="width:88%"></div></div>
+            <span class="dash-bar-pct">88%</span>
+          </div>
+          <div class="dash-bar-row">
+            <span class="dash-bar-label">Galpão A</span>
+            <div class="dash-bar-track"><div class="dash-bar-fill" style="width:71%"></div></div>
+            <span class="dash-bar-pct">71%</span>
+          </div>
         </div>
-        <h3>William Jackson</h3>
-        <div class="team-role">Coordenador de Projetos</div>
-        <p class="team-bio">Responsável pelo gerenciamento de contratos e execução de projetos de climatização para clientes industriais e hospitalares.</p>
-        <div class="team-social">
-          <a href="#" aria-label="X (Twitter)">
-            <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
-          </a>
-          <a href="#" aria-label="LinkedIn">
-            <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
-          </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================================================
+     PROCESS
+=================================================== -->
+<section class="process" id="processo" aria-labelledby="process-heading">
+  <div class="container">
+    <div class="process-header">
+      <span class="section-tag">Como Trabalhamos</span>
+      <h2 id="process-heading">Da demanda à operação<br />em 4 etapas</h2>
+      <p>Processo estruturado e transparente, com documentação técnica em cada fase e SLA definido em contrato.</p>
+    </div>
+
+    <div class="process-steps" role="list">
+
+      <div class="process-step" role="listitem">
+        <div class="process-num" aria-hidden="true">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <span class="step-badge">01</span>
         </div>
-      </article>
+        <h3>Diagnóstico Técnico</h3>
+        <p>Visita técnica gratuita com levantamento de carga térmica, inspeção dos equipamentos e mapeamento das necessidades operacionais.</p>
+      </div>
+
+      <div class="process-step" role="listitem">
+        <div class="process-num" aria-hidden="true">
+          <i class="fa-solid fa-pen-ruler"></i>
+          <span class="step-badge">02</span>
+        </div>
+        <h3>Projeto & Proposta</h3>
+        <p>Elaboração de projeto técnico personalizado com memorial descritivo, cronograma, especificações e proposta comercial detalhada.</p>
+      </div>
+
+      <div class="process-step" role="listitem">
+        <div class="process-num" aria-hidden="true">
+          <i class="fa-solid fa-screwdriver-wrench"></i>
+          <span class="step-badge">03</span>
+        </div>
+        <h3>Execução & Comissionamento</h3>
+        <p>Instalação por equipe certificada com testes de desempenho, comissionamento completo e entrega da ART e documentação técnica.</p>
+      </div>
+
+      <div class="process-step" role="listitem">
+        <div class="process-num" aria-hidden="true">
+          <i class="fa-solid fa-headset"></i>
+          <span class="step-badge">04</span>
+        </div>
+        <h3>Suporte Contínuo</h3>
+        <p>Plano de manutenção preventiva (PMOC), monitoramento remoto, atendimento 24h e relatórios periódicos de desempenho.</p>
+      </div>
 
     </div>
   </div>
@@ -1558,7 +1848,7 @@
           <li><a href="#inicio"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Início</a></li>
           <li><a href="#empresa"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Empresa</a></li>
           <li><a href="#servicos"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Serviços</a></li>
-          <li><a href="#equipe"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Equipe</a></li>
+          <li><a href="#tecnologia"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Tecnologia</a></li>
           <li><a href="#artigos"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Blog</a></li>
         </ul>
       </div>
